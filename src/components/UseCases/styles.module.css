@@ -1,0 +1,88 @@
+.useCases {
+  padding: 4rem 0;
+  background-color: var(--ifm-background-color);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.sectionSubtitle {
+  font-size: 1.2rem;
+  color: var(--ifm-color-emphasis-700);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.useCaseCard {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  transition: all 0.3s ease;
+}
+
+.useCaseCard:hover {
+  transform: translateX(10px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--ifm-color-primary);
+}
+
+.useCaseIcon {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.useCaseIcon svg {
+  width: 60px;
+  height: 60px;
+  color: var(--ifm-color-primary);
+}
+
+.useCaseContent {
+  flex: 1;
+}
+
+.useCaseTitle {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-heading-color);
+}
+
+.useCaseDescription {
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.6;
+}
+
+@media screen and (max-width: 768px) {
+  .useCaseCard {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .useCaseIcon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .useCaseIcon svg {
+    width: 40px;
+    height: 40px;
+  }
+}
