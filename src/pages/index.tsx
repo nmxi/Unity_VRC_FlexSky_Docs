@@ -4,6 +4,7 @@ import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import HomepageHero from '@site/src/components/HomepageHero';
 import Features from '@site/src/components/Features';
+import styles from './index.module.css';
 
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
@@ -21,7 +22,7 @@ export default function Home(): JSX.Element {
         <meta name="twitter:title" content={`${siteConfig.title} - VRChat向け空のShader`} />
         <meta name="twitter:description" content="FlexSkyは、VRChatワールドの空と光の表現を簡単に整えられるShaderです。" />
       </Head>
-      <main>
+      <main className={styles.main}>
         <HomepageHero />
       </main>
     </Layout>
