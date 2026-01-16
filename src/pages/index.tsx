@@ -17,32 +17,59 @@ export default function Home(): JSX.Element {
       return;
     }
 
-    const autoPickKey = 'flexsky-locale-autopick';
-    const isDefaultLocale = i18n.currentLocale === i18n.defaultLocale;
-    const isJaPreferred = (navigator.languages || [navigator.language])
-      .filter(Boolean)
-      .some((lang) => lang.toLowerCase().startsWith('ja'));
+    const storedLocaleKey = 'flexsky-locale';
+    const locales = i18n.locales;
+    const currentLocale = i18n.currentLocale;
+    const defaultLocale = i18n.defaultLocale;
+    const localeBaseUrl = (locale: string) =>
+      locale === defaultLocale
+        ? siteConfig.baseUrl
+        : `${siteConfig.baseUrl}${locale}/`;
 
-    let alreadyPicked = false;
+    let storedLocale: string | null = null;
     try {
-      alreadyPicked = window.localStorage.getItem(autoPickKey) === '1';
+      storedLocale = window.localStorage.getItem(storedLocaleKey);
     } catch {
-      alreadyPicked = false;
+      storedLocale = null;
     }
 
-    if (!alreadyPicked && isDefaultLocale && isJaPreferred) {
-      const target = `${siteConfig.baseUrl}ja/`;
-      if (!window.location.pathname.includes('/ja/')) {
+    const hasValidStoredLocale =
+      !!storedLocale && locales.includes(storedLocale);
+
+    if (hasValidStoredLocale && storedLocale !== currentLocale) {
+      const target = localeBaseUrl(storedLocale);
+      if (window.location.pathname !== target) {
         window.location.replace(target);
+        return;
+      }
+    }
+
+    if (!hasValidStoredLocale) {
+      const isDefaultLocale = currentLocale === defaultLocale;
+      const isJaPreferred = (navigator.languages || [navigator.language])
+        .filter(Boolean)
+        .some((lang) => lang.toLowerCase().startsWith('ja'));
+
+      if (isDefaultLocale && isJaPreferred) {
+        const target = localeBaseUrl('ja');
+        if (window.location.pathname !== target) {
+          window.location.replace(target);
+          return;
+        }
       }
     }
 
     try {
-      window.localStorage.setItem(autoPickKey, '1');
+      window.localStorage.setItem(storedLocaleKey, currentLocale);
     } catch {
       // Ignore storage failures (private mode, etc.)
     }
-  }, [i18n.currentLocale, i18n.defaultLocale, siteConfig.baseUrl]);
+  }, [
+    i18n.currentLocale,
+    i18n.defaultLocale,
+    i18n.locales,
+    siteConfig.baseUrl,
+  ]);
 
   return (
     <Layout
