@@ -63,11 +63,22 @@
   background-color: transparent;
   border-color: #ffffff;
   color: #ffffff;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  --hero-button-fill: rgba(0, 0, 0, 0.7);
+  background-image: linear-gradient(90deg, var(--hero-button-fill), var(--hero-button-fill));
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 0% 100%;
+  transition:
+    background-size 0.35s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
-.heroButton:hover {
+.heroButton:hover,
+.heroButton:focus-visible {
   background-color: transparent;
   border-color: #b8dcff;
-  color: #b8dcff;
+  color: #ffffff;
+  --hero-button-fill: rgba(0, 0, 0, 0.7);
+  background-size: 100% 100%;
 }
