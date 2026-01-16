@@ -62,7 +62,7 @@ const config: Config = {
     image: 'img/FlexSky-thumbnail.png',
     colorMode: {
       defaultMode: 'dark',
-      disableSwitch: false,
+      disableSwitch: true,
       respectPrefersColorScheme: false,
     },
     navbar: {
@@ -78,30 +78,7 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      links: [
-        {
-          title: 'ドキュメント',
-          items: [
-            {
-              label: 'FlexSkyについて',
-              to: '/docs/intro',
-            },
-            {
-              label: 'クイックインストール',
-              to: '/docs/quick-installation',
-            },
-          ],
-        },
-        {
-          title: 'リンク',
-          items: [
-            {
-              label: 'Booth',
-              href: 'https://nmxi.booth.pm/items/7604667',
-            },
-          ],
-        },
-      ],
+      links: [],
       copyright: `Copyright © ${new Date().getFullYear()} <a href="https://x.com/kemmimilk" target="_blank" rel="noopener noreferrer">mikinel</a>. Built with Docusaurus.`,
     },
     prism: {
@@ -109,6 +86,12 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+  stylesheets: [
+    {
+      href: 'https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap',
+      type: 'text/css',
+    },
+  ],
 };
 
 export default config;

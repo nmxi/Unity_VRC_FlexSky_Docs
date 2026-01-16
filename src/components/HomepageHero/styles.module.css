@@ -17,7 +17,7 @@
 }
 
 .heroTitleImage {
-  max-width: min(1280px, 95vw);
+  max-width: min(1280px, 80vw);
   width: 100%;
   height: auto;
   display: block;
@@ -60,13 +60,14 @@
 }
 
 .heroButton {
-  background-color: #ea9955;
-  border-color: #ea9955;
-  color: #000;
+  background-color: transparent;
+  border-color: #ffffff;
+  color: #ffffff;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .heroButton:hover {
-  background-color: #d88744;
-  border-color: #d88744;
-  color: #000;
+  background-color: transparent;
+  border-color: #b8dcff;
+  color: #b8dcff;
 }
