@@ -45,13 +45,23 @@ export default function Home(): JSX.Element {
     }
 
     if (!hasValidStoredLocale) {
-      const isDefaultLocale = currentLocale === defaultLocale;
-      const isJaPreferred = (navigator.languages || [navigator.language])
+      const preferredLocales = (navigator.languages || [navigator.language])
         .filter(Boolean)
-        .some((lang) => lang.toLowerCase().startsWith('ja'));
+        .map((lang) => lang.toLowerCase());
+      const matchedLocale = locales.find((locale) =>
+        preferredLocales.some((lang) => lang.startsWith(locale.toLowerCase())),
+      );
 
-      if (isDefaultLocale && isJaPreferred) {
-        const target = localeBaseUrl('ja');
+      if (matchedLocale && matchedLocale !== currentLocale) {
+        const target = localeBaseUrl(matchedLocale);
+        if (window.location.pathname !== target) {
+          window.location.replace(target);
+          return;
+        }
+      }
+
+      if (!matchedLocale && currentLocale !== defaultLocale) {
+        const target = localeBaseUrl(defaultLocale);
         if (window.location.pathname !== target) {
           window.location.replace(target);
           return;
