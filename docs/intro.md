@@ -1,44 +1,44 @@
 ---
 sidebar_position: 1
-sidebar_label: FlexSkyについて
+sidebar_label: About FlexSky
 ---
 
 import ClickableImage from '@site/src/components/ClickableImage';
 
-# FlexSkyについて
+# About FlexSky
 
-FlexSkyは、VRChatワールド向けの空を自由に作成するためのShaderです。
+FlexSky is a shader for creating customizable skies for VRChat worlds.
 
-FlexSkyを導入することで、高品質な昼、夜、夕日、朝日、非現実的な空も簡単に設定することができます。
+With FlexSky, you can easily set up high-quality daytime, nighttime, sunset, sunrise, and even surreal skies.
 
 <ClickableImage src="/img/FlexSky_Art0.png" alt="FlexSky Preview" />
 
-## 主要機能
+## Key Features
 
-1. 空の色味・グラデーションの調整
-2. 雲量や明るさのバランス調整
-3. ワールドの雰囲気に合わせたプリセット運用
+1. Adjust sky color and gradients
+2. Balance cloud density and brightness
+3. Use presets tailored to each world's mood
 
-## 動作環境
+## Supported Environment
 
-FlexSkyは以下の環境で動作確認を行っています
+FlexSky is verified in the following environment:
 
 - **Unity**: 2022.3.22f1
 - **VRChat World SDK**: 3.9.0
 
-## このドキュメントについて
+## About This Documentation
 
-このドキュメントでは、FlexSkyの導入方法から基本的な使い方、カスタム調整まで解説します。
+This documentation covers everything from setup to basic usage and custom tuning.
 
-- すぐに導入したい方は[クイックインストール](/docs/quick-installation)へ
-- 詳細な手順をご覧になる方は[はじめに](/docs/getting-started)をご覧ください
+- If you want to get started quickly, see [Quick Installation](/docs/quick-installation)
+- For a step-by-step guide, see [Getting Started](/docs/getting-started)
 
-## 二次販売・配布について
+## Resale and Redistribution
 
-FlexSkyの設定値やプリセットをまとめたデータは、当アセットに含まれるコード類・アセット類を直接含めない形であれば、配布や販売が可能です。
+You may distribute or sell data that aggregates FlexSky settings or presets, as long as it does not directly include any code or assets from this package.
 
-配布や販売を行う場合は、利用者側でFlexSkyのアセット本体を導入していることを前提条件としてください。
+If you distribute or sell such data, assume the end users have already installed the FlexSky asset package.
 
-## ライセンス表記
+## License Notice
 
-FlexSkyに同梱される第三者アセットのライセンス表記は、同梱ファイルのREADMEをご確認ください。
+For license notices of third-party assets included with FlexSky, refer to the README files bundled with the package.
