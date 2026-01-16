@@ -233,6 +233,10 @@ html.docs-doc-page #__docusaurus::after {
   display: flex;
 }
 
+.navbar__toggle {
+  color: #b8dcff;
+}
+
 
 .footer a {
   color: #b8dcff;
