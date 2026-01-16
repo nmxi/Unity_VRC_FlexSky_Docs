@@ -5,10 +5,11 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
 
 type HomepageHeroProps = {
-  buttonLabel: string;
+  docsLabel: string;
+  boothLabel: string;
 };
 
-export default function HomepageHero({buttonLabel}: HomepageHeroProps): JSX.Element {
+export default function HomepageHero({docsLabel, boothLabel}: HomepageHeroProps): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   
   return (
@@ -31,7 +32,14 @@ export default function HomepageHero({buttonLabel}: HomepageHeroProps): JSX.Elem
           <Link
             className={clsx('button button--primary button--lg', styles.heroButton)}
             to="/docs/intro">
-            {buttonLabel}
+            {docsLabel}
+          </Link>
+          <Link
+            className={clsx('button button--primary button--lg', styles.heroButton)}
+            href="https://nmxi.booth.pm/"
+            target="_blank"
+            rel="noopener noreferrer">
+            {boothLabel}
           </Link>
         </div>
       </div>
