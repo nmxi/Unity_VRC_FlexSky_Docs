@@ -16,31 +16,9 @@ const sidebars: SidebarsConfig = {
   // Manually define the sidebar structure
   tutorialSidebar: [
     'intro',
-    'quick-installation',
-    {
-      type: 'category',
-      label: '🟢 基本セットアップ',
-      collapsed: false,
-      items: [
-        'getting-started',
-        'add-prefab',
-        'add-entrance-room',
-        'world-upload',
-      ],
-    },
-    {
-      type: 'category',
-      label: '🟠 応用設定',
-      collapsed: false,
-      items: [
-        'custom-entrance-room',
-        'entrance-room-effects',
-        'lightbake-entrance-room',
-        'control-panel',
-        'randomize-spawn-position',
-        'hide-udon-syncing',
-      ],
-    },
+    'getting-started',
+    'parameter-adjustment',
+    'preset-features',
   ],
 };
 

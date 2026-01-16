@@ -7,7 +7,8 @@ import Features from '@site/src/components/Features';
 import styles from './index.module.css';
 
 export default function Home(): JSX.Element {
-  const {siteConfig} = useDocusaurusContext();
+  const {siteConfig, i18n} = useDocusaurusContext();
+  const buttonLabel = i18n.currentLocale === 'ja' ? 'ドキュメントへ' : 'View Documentation';
   return (
     <Layout
       title={`${siteConfig.title} - VRChat向け空のShader`}
@@ -23,7 +24,7 @@ export default function Home(): JSX.Element {
         <meta name="twitter:description" content="FlexSkyは、VRChatワールドの空と光の表現を簡単に整えられるShaderです。" />
       </Head>
       <main className={styles.main}>
-        <HomepageHero />
+        <HomepageHero buttonLabel={buttonLabel} />
       </main>
     </Layout>
   );

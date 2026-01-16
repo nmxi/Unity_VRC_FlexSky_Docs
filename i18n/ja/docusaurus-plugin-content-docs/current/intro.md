@@ -7,38 +7,26 @@ import ClickableImage from '@site/src/components/ClickableImage';
 
 # FlexSkyについて
 
-FlexSkyは、VRChatワールド向けの空を自由に作成するためのShaderです。
-
-FlexSkyを導入することで、高品質な昼、夜、夕日、朝日、非現実的な空も簡単に設定することができます。
+FlexSkyは、VRChatワールド向けの空を自由に作成するためのShaderです。  
+高品質な昼、夜、夕日、朝日、非現実的な空もパラメーターの調整により、作成することができます。
 
 <ClickableImage src="/img/FlexSky_Art0.png" alt="FlexSky Preview" />
-
-## 主要機能
-
-1. 空の色味・グラデーションの調整
-2. 雲量や明るさのバランス調整
-3. ワールドの雰囲気に合わせたプリセット運用
 
 ## 動作環境
 
 FlexSkyは以下の環境で動作確認を行っています
 
 - **Unity**: 2022.3.22f1
-- **VRChat World SDK**: 3.9.0
-
-## このドキュメントについて
-
-このドキュメントでは、FlexSkyの導入方法から基本的な使い方、カスタム調整まで解説します。
-
-- すぐに導入したい方は[クイックインストール](/docs/quick-installation)へ
-- 詳細な手順をご覧になる方は[はじめに](/docs/getting-started)をご覧ください
+- **VRChat World SDK**: 3.10.1
 
 ## 二次販売・配布について
 
-FlexSkyの設定値やプリセットをまとめたデータは、当アセットに含まれるコード類・アセット類を直接含めない形であれば、配布や販売が可能です。
-
-配布や販売を行う場合は、利用者側でFlexSkyのアセット本体を導入していることを前提条件としてください。
+FlexSkyのコードは二次販売・配布に含めることはできません。  
+例外としてプリセット(拡張子.asset)のデータは販売・配布は可能です。
 
 ## ライセンス表記
 
-FlexSkyに同梱される第三者アセットのライセンス表記は、同梱ファイルのREADMEをご確認ください。
+FlexSkyはTowelCloudをFlexSky用にカスタマイズしたものを内包しています。  
+TowelCloud は Zlib License で提供されています。  
+ライセンスの詳細はunitypackage内のソースコードの記載をご覧下さい。  
+https://gitlab.com/towelfunnelvrc/towelcloud

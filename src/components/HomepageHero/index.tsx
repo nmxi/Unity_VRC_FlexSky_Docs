@@ -4,7 +4,11 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
 
-export default function HomepageHero(): JSX.Element {
+type HomepageHeroProps = {
+  buttonLabel: string;
+};
+
+export default function HomepageHero({buttonLabel}: HomepageHeroProps): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   
   return (
@@ -27,7 +31,7 @@ export default function HomepageHero(): JSX.Element {
           <Link
             className={clsx('button button--primary button--lg', styles.heroButton)}
             to="/docs/intro">
-            View Documentation
+            {buttonLabel}
           </Link>
         </div>
       </div>
