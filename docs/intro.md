@@ -9,7 +9,7 @@ import ClickableImage from '@site/src/components/ClickableImage';
 
 FlexSkyは、VRChatワールド向けの空を自由に作成するためのShaderです。
 
-FlexSkyを導入することで、高品質な昼、夜、夕日、朝日、非現実的な空を簡単に設定することができます。
+FlexSkyを導入することで、高品質な昼、夜、夕日、朝日、非現実的な空も簡単に設定することができます。
 
 <ClickableImage src="/img/FlexSky_Art0.png" alt="FlexSky Preview" />
 
