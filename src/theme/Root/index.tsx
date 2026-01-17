@@ -26,6 +26,19 @@ export default function Root({children}: RootProps): JSX.Element {
     const localeBaseUrl = (locale: string) =>
       locale === defaultLocale ? basePath : `${basePath}${locale}/`;
     const isHomePath = normalizePath(window.location.pathname) === basePath;
+    const normalizedPathname = normalizePath(window.location.pathname);
+    const duplicatedLocale = locales
+      .filter((locale) => locale !== defaultLocale)
+      .find((locale) => {
+        const localePath = `${basePath}${locale}/`;
+        const duplicatedPath = `${localePath}${basePath}${locale}/`;
+        return normalizedPathname.startsWith(duplicatedPath);
+      });
+
+    if (duplicatedLocale) {
+      window.location.replace(localeBaseUrl(duplicatedLocale));
+      return;
+    }
 
     let storedLocale: string | null = null;
     let hasSession = false;
