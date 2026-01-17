@@ -53,13 +53,9 @@ export default function Root({children}: RootProps): JSX.Element {
           return;
         }
       } else {
-        const preferredLocales = (navigator.languages || [navigator.language])
-          .filter(Boolean)
-          .map((lang) => lang.toLowerCase());
+        const preferredLocale = (navigator.language || '').toLowerCase();
         const matchedLocale = locales.find((locale) =>
-          preferredLocales.some((lang) =>
-            lang.startsWith(locale.toLowerCase()),
-          ),
+          preferredLocale.startsWith(locale.toLowerCase()),
         );
         const initialLocale = matchedLocale ?? defaultLocale;
 
