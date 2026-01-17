@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
@@ -11,75 +11,6 @@ export default function Home(): JSX.Element {
   const isJa = i18n.currentLocale === 'ja';
   const docsLabel = isJa ? 'ドキュメント' : 'Documentation';
   const boothLabel = isJa ? 'BOOTH' : 'BOOTH';
-
-  useEffect(() => {
-    if (typeof window === 'undefined') {
-      return;
-    }
-
-    const storedLocaleKey = 'flexsky-locale';
-    const locales = i18n.locales;
-    const currentLocale = i18n.currentLocale;
-    const defaultLocale = i18n.defaultLocale;
-    const localeBaseUrl = (locale: string) =>
-      locale === defaultLocale
-        ? siteConfig.baseUrl
-        : `${siteConfig.baseUrl}${locale}/`;
-
-    let storedLocale: string | null = null;
-    try {
-      storedLocale = window.localStorage.getItem(storedLocaleKey);
-    } catch {
-      storedLocale = null;
-    }
-
-    const hasValidStoredLocale =
-      !!storedLocale && locales.includes(storedLocale);
-
-    if (hasValidStoredLocale && storedLocale !== currentLocale) {
-      const target = localeBaseUrl(storedLocale);
-      if (window.location.pathname !== target) {
-        window.location.replace(target);
-        return;
-      }
-    }
-
-    if (!hasValidStoredLocale) {
-      const preferredLocales = (navigator.languages || [navigator.language])
-        .filter(Boolean)
-        .map((lang) => lang.toLowerCase());
-      const matchedLocale = locales.find((locale) =>
-        preferredLocales.some((lang) => lang.startsWith(locale.toLowerCase())),
-      );
-
-      if (matchedLocale && matchedLocale !== currentLocale) {
-        const target = localeBaseUrl(matchedLocale);
-        if (window.location.pathname !== target) {
-          window.location.replace(target);
-          return;
-        }
-      }
-
-      if (!matchedLocale && currentLocale !== defaultLocale) {
-        const target = localeBaseUrl(defaultLocale);
-        if (window.location.pathname !== target) {
-          window.location.replace(target);
-          return;
-        }
-      }
-    }
-
-    try {
-      window.localStorage.setItem(storedLocaleKey, currentLocale);
-    } catch {
-      // Ignore storage failures (private mode, etc.)
-    }
-  }, [
-    i18n.currentLocale,
-    i18n.defaultLocale,
-    i18n.locales,
-    siteConfig.baseUrl,
-  ]);
 
   return (
     <Layout
