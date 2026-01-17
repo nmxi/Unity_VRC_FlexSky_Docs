@@ -18,52 +18,70 @@ export default function Root({children}: RootProps): JSX.Element {
     }
 
     const storedLocaleKey = 'flexsky-locale';
+    const sessionKey = 'flexsky-locale-session';
     const locales = i18n.locales;
     const currentLocale = i18n.currentLocale;
     const defaultLocale = i18n.defaultLocale;
     const basePath = normalizePath(siteConfig.baseUrl);
     const localeBaseUrl = (locale: string) =>
       locale === defaultLocale ? basePath : `${basePath}${locale}/`;
+    const isHomePath = normalizePath(window.location.pathname) === basePath;
 
     let storedLocale: string | null = null;
+    let hasSession = false;
     try {
       storedLocale = window.localStorage.getItem(storedLocaleKey);
+      hasSession = window.sessionStorage.getItem(sessionKey) === '1';
     } catch {
       storedLocale = null;
+      hasSession = false;
     }
 
     const hasValidStoredLocale =
       !!storedLocale && locales.includes(storedLocale);
 
-    if (!hasValidStoredLocale) {
-      const preferredLocales = (navigator.languages || [navigator.language])
-        .filter(Boolean)
-        .map((lang) => lang.toLowerCase());
-      const matchedLocale = locales.find((locale) =>
-        preferredLocales.some((lang) => lang.startsWith(locale.toLowerCase())),
-      );
-      const initialLocale = matchedLocale ?? defaultLocale;
+    if (!hasSession) {
+      if (hasValidStoredLocale) {
+        try {
+          window.sessionStorage.setItem(sessionKey, '1');
+        } catch {
+          // Ignore storage failures (private mode, etc.)
+        }
 
-      try {
-        window.localStorage.setItem(storedLocaleKey, initialLocale);
-      } catch {
-        // Ignore storage failures (private mode, etc.)
+        if (isHomePath && storedLocale !== currentLocale) {
+          window.location.replace(localeBaseUrl(storedLocale));
+          return;
+        }
+      } else {
+        const preferredLocales = (navigator.languages || [navigator.language])
+          .filter(Boolean)
+          .map((lang) => lang.toLowerCase());
+        const matchedLocale = locales.find((locale) =>
+          preferredLocales.some((lang) =>
+            lang.startsWith(locale.toLowerCase()),
+          ),
+        );
+        const initialLocale = matchedLocale ?? defaultLocale;
+
+        try {
+          window.localStorage.setItem(storedLocaleKey, initialLocale);
+          window.sessionStorage.setItem(sessionKey, '1');
+        } catch {
+          // Ignore storage failures (private mode, etc.)
+        }
+
+        if (isHomePath && initialLocale !== currentLocale) {
+          window.location.replace(localeBaseUrl(initialLocale));
+          return;
+        }
       }
-
-      const isHome = normalizePath(window.location.pathname) === basePath;
-      if (isHome && initialLocale !== currentLocale) {
-        window.location.replace(localeBaseUrl(initialLocale));
-      }
-
-      return;
     }
 
-    if (storedLocale !== currentLocale) {
-      try {
-        window.localStorage.setItem(storedLocaleKey, currentLocale);
-      } catch {
-        // Ignore storage failures (private mode, etc.)
-      }
+    try {
+      window.localStorage.setItem(storedLocaleKey, currentLocale);
+      window.sessionStorage.setItem(sessionKey, '1');
+    } catch {
+      // Ignore storage failures (private mode, etc.)
     }
   }, [
     i18n.currentLocale,
