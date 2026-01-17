@@ -19,6 +19,8 @@ const sidebars: SidebarsConfig = {
     'getting-started',
     'parameter-adjustment',
     'preset-features',
+    'dynamic-sky-switching',
+    'sharing-and-distribution',
   ],
 };
 

@@ -12,7 +12,7 @@ export default function Home(): JSX.Element {
     en: {
       docsLabel: 'Documentation',
       boothLabel: 'BOOTH',
-      pageTitle: `${siteConfig.title} - Shader for Various Skies`,
+      pageTitle: `${siteConfig.title} - Shader for Creating Varied Skies`,
       pageDescription:
         'FlexSky is a shader that lets you easily refine sky and lighting in VRChat worlds.',
     },
