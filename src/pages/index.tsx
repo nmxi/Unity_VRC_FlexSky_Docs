@@ -12,21 +12,21 @@ export default function Home(): JSX.Element {
     en: {
       docsLabel: 'Documentation',
       boothLabel: 'BOOTH',
-      pageTitle: `${siteConfig.title} - Sky Shader for VRChat`,
+      pageTitle: `${siteConfig.title} - Shader for Various Skies`,
       pageDescription:
         'FlexSky is a shader that lets you easily refine sky and lighting in VRChat worlds.',
     },
     ja: {
       docsLabel: 'ドキュメント',
       boothLabel: 'BOOTH',
-      pageTitle: `${siteConfig.title} - VRChat向け空のShader`,
+      pageTitle: `${siteConfig.title} - 様々な空を表現するためのShader`,
       pageDescription:
         'FlexSkyは、VRChatワールドの空と光の表現を簡単に整えられるShaderです。',
     },
     ko: {
       docsLabel: '문서',
       boothLabel: 'BOOTH',
-      pageTitle: `${siteConfig.title} - VRChat용 하늘 셰이더`,
+      pageTitle: `${siteConfig.title} - 다양한 하늘을 표현하기 위한 셰이더`,
       pageDescription:
         'FlexSky는 VRChat 월드의 하늘과 조명 표현을 쉽게 정리할 수 있는 셰이더입니다.',
     },
